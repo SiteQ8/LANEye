@@ -1,1 +1,255 @@
-<!DOCTYPE html><html><body><h1>docs/index.html</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LANEye - Lightweight Network IP Scanner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .demo-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 LANEye</h1>
+            <p class="tagline">Lightweight, Reliable Network IP Scanner with Web GUI</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/SiteQ8/laneye" class="btn btn-primary">View on GitHub</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </header>
+
+        <div class="features" id="features">
+            <div class="feature-card">
+                <h3>🚀 Real-time Discovery</h3>
+                <p>Instantly discover new devices joining your network with automatic notifications via Telegram, Email, Slack, and more.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📊 Host Inventory</h3>
+                <p>Maintain a complete database of all network devices with IP, MAC, vendor info, and historical status tracking.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🔔 Smart Alerts</h3>
+                <p>Get notified when hosts go online or offline. Multiple notification channels supported including webhooks.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📈 ELK Integration</h3>
+                <p>Export scan data to Elasticsearch for advanced analytics and visualization in Kibana dashboards.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📉 Grafana Support</h3>
+                <p>Built-in Prometheus metrics endpoint for beautiful Grafana dashboards and monitoring.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎨 Modern Web GUI</h3>
+                <p>Beautiful, responsive web interface built with React and Tailwind CSS. Works on desktop and mobile.</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Quick Start</h2>
+            <pre>
+# Clone the repository
+git clone https://github.com/SiteQ8/laneye.git
+cd laneye
+
+# Start with Docker Compose
+docker-compose up -d
+
+# Access the web interface
+open http://localhost:8000
+            </pre>
+
+            <h3>Configuration</h3>
+            <p>Edit <code>config.yaml</code> to configure scanning, notifications, and integrations:</p>
+            <pre>
+scanning:
+  interface: eth0
+  subnet: 192.168.1.0/24
+  interval: 60
+
+notifications:
+  enabled: true
+  channels:
+    - telegram
+    - webhook
+            </pre>
+        </div>
+
+        <div class="demo-section">
+            <h2>Features in Detail</h2>
+
+            <h3>Network Scanning</h3>
+            <p>LANEye uses ARP and ICMP to discover devices on your network. It continuously monitors for changes and maintains a complete inventory.</p>
+
+            <h3>Notification System</h3>
+            <p>Support for multiple notification channels:</p>
+            <ul style="margin-left: 40px; margin-top: 10px;">
+                <li>📱 Telegram Bot</li>
+                <li>📧 Email (SMTP)</li>
+                <li>💬 Slack Webhooks</li>
+                <li>🔗 Generic Webhooks</li>
+                <li>🔔 Discord</li>
+            </ul>
+
+            <h3>Data Export</h3>
+            <p>Export your network data to:</p>
+            <ul style="margin-left: 40px; margin-top: 10px;">
+                <li>Elasticsearch (ELK Stack)</li>
+                <li>Prometheus + Grafana</li>
+                <li>InfluxDB</li>
+                <li>JSON API</li>
+            </ul>
+        </div>
+
+        <footer>
+            <h3>About LANEye</h3>
+            <p>Created by <strong>SiteQ8</strong></p>
+            <p>Email: <a href="mailto:site@hotmail.com">site@hotmail.com</a></p>
+            <p>Website: <a href="https://3li.info">3li.info</a></p>
+            <p style="margin-top: 20px;">Released under MIT License</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/SiteQ8/laneye">GitHub</a> |
+                <a href="api-docs.html">API Documentation</a> |
+                <a href="https://github.com/SiteQ8/laneye/issues">Support</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
