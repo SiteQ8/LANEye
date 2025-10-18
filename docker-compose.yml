@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  laneye:
+    build: .
+    container_name: laneye
+    network_mode: host
+    environment:
+      - INTERFACE=eth0
+      - TZ=Asia/Kuwait
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/app/config.yaml
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: laneye-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+    restart: unless-stopped
+
+volumes:
+  grafana-data:
