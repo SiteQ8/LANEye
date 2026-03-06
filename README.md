@@ -5,7 +5,7 @@
 
 **LANEye** is a lightweight, powerful, and reliable network IP scanner with a modern web GUI.
 
-🌐 **[Live Demo](https://siteq8.github.io/laneye)** | 📚 **[Documentation](https://siteq8.github.io/laneye/)**
+🌐 **[Live Demo](https://siteq8.github.io/LANEye)** | 📚 **[Documentation](https://siteq8.github.io/laneye/)**
 
 ## ✨ Features
 
