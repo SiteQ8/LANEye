@@ -1,9 +1,13 @@
+# =============================================================================
 # LANEye Configuration
+# =============================================================================
 
 scanning:
-  interface: eth0
-  subnet: 192.168.1.0/24
-  interval: 60
+  interface: eth0                    # Network interface to scan
+  subnet: 192.168.1.0/24           # Target subnet (CIDR notation)
+  interval: 60                      # Seconds between scans
+  timeout: 3                        # ARP/ICMP timeout (seconds)
+  rate_limit: 0.01                  # Delay between probes (seconds)
 
 database:
   type: sqlite
@@ -13,25 +17,55 @@ server:
   host: 0.0.0.0
   port: 8000
 
+# --- Notification Channels ---------------------------------------------------
 notifications:
   enabled: true
   channels:
     - telegram
+    - slack
     - webhook
-  telegram:
-    bot_token: YOUR_BOT_TOKEN
-    chat_id: YOUR_CHAT_ID
-  webhook:
-    url: https://your-webhook-url.com/alert
 
+  telegram:
+    bot_token: "YOUR_BOT_TOKEN"
+    chat_id: "YOUR_CHAT_ID"
+
+  slack:
+    webhook_url: "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
+
+  discord:
+    webhook_url: "https://discord.com/api/webhooks/YOUR/DISCORD/WEBHOOK"
+
+  webhook:
+    url: "https://your-webhook-url.com/laneye"
+
+  email:
+    smtp_host: smtp.gmail.com
+    smtp_port: 587
+    username: "your-email@gmail.com"
+    password: "your-app-password"
+    from: "laneye@yourdomain.com"
+    to: "admin@yourdomain.com"
+
+# --- ELK Stack ----------------------------------------------------------------
 elk:
   enabled: false
   elasticsearch_url: http://localhost:9200
   index_name: laneye-hosts
 
+# --- Prometheus / Grafana -----------------------------------------------------
 grafana:
   enabled: true
   metrics_endpoint: /metrics
 
+# --- InfluxDB -----------------------------------------------------------------
+influxdb:
+  enabled: false
+  url: http://localhost:8086
+  bucket: laneye
+  org: ""
+  token: ""
+
+# --- Logging ------------------------------------------------------------------
 logging:
   level: INFO
+  file: /data/laneye.log
